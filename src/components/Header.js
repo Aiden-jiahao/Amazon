@@ -1,5 +1,9 @@
-import React from "react";
 import Image from "next/image";
+import {
+  MenuIcon,
+  SearchIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/outline";
 
 function Header() {
   return (
@@ -15,9 +19,11 @@ function Header() {
             className="cursor-pointer"
           />
         </div>
+
         {/* Search nav bar*/}
-        <div>
+        <div className="bg-yellow-400 hover:bg-yellow-500">
           <input type="text" />
+          <SearchIcon className="h-12 p-4" />
         </div>
       </div>
 
