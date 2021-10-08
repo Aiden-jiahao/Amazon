@@ -1,6 +1,8 @@
+import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/solid";
+import Currency from "react-currency-formatter";
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
@@ -9,9 +11,10 @@ function Product({ id, title, price, description, category, image }) {
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
+  const [hasPrime] = useState(Math.random() < 0.5);
 
   return (
-    <div>
+    <div className="relative flex flex-col m-5 bg-white z-30 p-10">
       <p>{category}</p>
 
       <Image src={image} height={200} width={200} objectFit="contain" />
@@ -24,6 +27,22 @@ function Product({ id, title, price, description, category, image }) {
             <StarIcon className="h-5" />
           ))}
       </div>
+
+      <p>{description}</p>
+
+      {
+        <div>
+          <Currency quantity={price} currency="CAD" />
+        </div>
+      }
+
+      {hasPrime && (
+        <div>
+          <img src="https://links.papareact.com/fdw" arc="" />
+          <p>FREE Next-day Delivery</p>
+        </div>
+      )}
+      <button>Add to Basket</button>
     </div>
   );
 }
