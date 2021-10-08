@@ -11,7 +11,7 @@ function Banner() {
         infiniteLoop
         showStatus={false}
         showThumbs={false}
-        interval={5000}
+        interval={2500}
       >
         {/* this 3 div shows 3 things to carousel*/}
         <div>
